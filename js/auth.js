@@ -34,7 +34,7 @@ buttonOut.addEventListener('click', () => {
 })
 
 modalAuth.addEventListener('click', (e) => {
-    if(e.target == closeAuth || e.target == modalAuth) {
+    if (e.target == closeAuth || e.target == modalAuth) {
         modalAuth.style.display = 'none'
     }
 })
@@ -47,7 +47,7 @@ logInForm.addEventListener('submit', (e) => {
         password: inputPassword.value,
     }
 
-    if(user.login.length > 0 && user.password.length > 0) {
+    if (user.login.length > 0 && user.password.length > 0) {
         localStorage.setItem('user', JSON.stringify(user))
         login(user)
         inputlogin.style.borderColor = 'black'
@@ -55,12 +55,12 @@ logInForm.addEventListener('submit', (e) => {
         inputPassword.style.borderColor = 'black'
         inputPasswordError.style.display = 'none'
     } else {
-        if(user.login.length == ' ') {
+        if (user.login.length == ' ') {
             addError(inputlogin, inputloginError)
         } else {
             removeError(inputlogin, inputloginError)
         }
-        if(user.password.length == ' ') {
+        if (user.password.length == ' ') {
             addError(inputPassword, inputPasswordError)
         } else {
             removeError(inputPassword, inputPasswordError)
@@ -68,7 +68,7 @@ logInForm.addEventListener('submit', (e) => {
     }
 })
 
-if(localStorage.getItem('user')) {
+if (localStorage.getItem('user')) {
     login(JSON.parse(localStorage.getItem('user')))
 }
 
