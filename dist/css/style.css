@@ -134,6 +134,7 @@ button {
     -webkit-mask: url("../img/icon/shopping-cart.svg") no-repeat 50% 50%;
     mask: url("../img/icon/shopping-cart.svg") no-repeat 50% 50%;
     background-repeat: no-repeat;
+    pointer-events: none;
 }
 
 .button-primary .button-cart-svg {
@@ -418,19 +419,12 @@ button {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
-    display: none;
     z-index: 999;
 }
 
-.modal-auth {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+.modal-auth, .modal-cart {
+    overflow: hidden auto;
     display: flex;
-    z-index: 999;
     opacity: 0;
     visibility: hidden;
     transition: all .3s linear;
@@ -441,13 +435,19 @@ button {
     visibility: visible;
 }
 
-.modal-auth._open .modal-dialog-auth {
+.modal-auth._open .modal-dialog {
     transform: scale(1);
     transition: all .3s linear;
 }
 
-.is-open {
-    display: flex;
+.modal-cart._is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-cart._is-open .modal-dialog {
+    transform: scale(1);
+    transition: all .3s linear;
 }
 
 .modal-dialog {
@@ -457,12 +457,12 @@ button {
     border-radius: 5px;
     margin: auto;
     padding: 40px 45px;
+    transform: scale(0);
 }
 
 .modal-dialog-auth {
     width: auto;
     position: relative;
-    transform: scale(0);
 }
 
 .label-auth {
@@ -541,6 +541,13 @@ button {
 .food-counter {
     display: flex;
     align-items: center;
+}
+.food-primary {
+    display: block;
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 700;
+    text-align: center;
 }
 
 .counter-button {
